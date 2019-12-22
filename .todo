@@ -1,2 +1,25 @@
-Liste des taches du projet buffa :
-    
+Administration :
+    Fonctionnalités :
+        ☐ Tableau de bord
+            ☐ Stats : 
+                ☐ Nombre de restaurant total
+                ☐ Commandes effectué (Effectif + Montant)
+                ☐ 
+                
+        ☐ Connexion (Login)
+        ☐ Restaurants
+            ☐ Create
+            ☐ Read (list)
+            ☐ Update
+            ☐ Delete (with confirm)
+        ☐ Menu d'un restaurant
+            ☐ Create
+            ☐ Read (list)
+            ☐ Update
+            ☐ Delete (with confirm)
+        ☐ Plats proposé par le restaurant
+            ☐ Create
+            ☐ Read (list)
+            ☐ Update
+            ☐ Delete (with confirm)
+        ☐ Commandes
