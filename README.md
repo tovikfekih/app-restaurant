@@ -47,3 +47,8 @@ npm run lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Plugins vue js utilisé
+
+- Vuetify (vue-cli-plugin-vuetify)
+- Axios (vue-cli-plugin-axios)

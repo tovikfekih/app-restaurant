@@ -5,7 +5,12 @@
 </template>
 
 <script>
-export default {};
+import RestaurantServices from "./../services/RestaurantServices";
+export default {
+  mounted() {
+    RestaurantServices.list(this);
+  }
+};
 </script>
 
 <style scoped></style>
