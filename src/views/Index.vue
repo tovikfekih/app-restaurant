@@ -1,15 +1,26 @@
 <template>
   <div>
-    banjour
+    <restaurant-liste :filtres="filtres" />
   </div>
 </template>
 
 <script>
+import RestaurantListe from "./../components/RestaurantListe";
 import RestaurantServices from "./../services/RestaurantServices";
 export default {
-  mounted() {
-    RestaurantServices.list(this);
-  }
+  components: {
+    RestaurantListe
+  },
+  data() {
+    return {
+      filtres: {
+        nom: "",
+        type_cuisine: [],
+        type_plats: []
+      }
+    };
+  },
+  mounted() {}
 };
 </script>
 
