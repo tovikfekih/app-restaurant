@@ -1,24 +1,20 @@
 <template>
-  <v-app>
-    <the-app-bar />
-    <the-drawer />
-    <the-view />
-    <the-footer />
-  </v-app>
+  <component :is="layout"></component>
 </template>
 
 <script>
-import TheAppBar from "./components/TheAppBar";
-import TheView from "./components/TheView";
-import TheDrawer from "./components/TheDrawer";
-import TheFooter from "./components/TheFooter";
-
+const default_layout = "default";
+import AdminLayout from "./layouts/AdminLayout";
+import DefaultLayout from "./layouts/DefaultLayout";
 export default {
   components: {
-    TheAppBar,
-    TheDrawer,
-    TheView,
-    TheFooter
+    AdminLayout,
+    DefaultLayout
+  },
+  computed: {
+    layout() {
+      return (this.$route.meta.layout || default_layout) + "-layout";
+    }
   }
 };
 </script>

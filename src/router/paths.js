@@ -6,17 +6,31 @@
 export default [
   {
     path: "",
-    // Relative to /src/views
-    view: "Dashboard"
+    view: "Index",
+    name: "index"
   },
   {
-    path: "/restaurants",
-    name: "Restaurants",
-    view: "Restaurants"
+    path: "/admin/login",
+    name: "Connexion Administration",
+    view: "admin/Login",
+    meta: { layout: "default" }
   },
   {
-    path: "/commandes",
-    name: "Commandes",
-    view: "Commandes"
+    path: "/admin",
+    name: "Administration",
+    view: "admin/Dashboard",
+    meta: { layout: "admin" }
+  },
+  {
+    path: "/admin/restaurants",
+    name: "Gestion des restaurants",
+    view: "admin/Restaurants",
+    meta: { layout: "admin" }
+  },
+  {
+    path: "/admin/commandes",
+    name: "Gestion des commandes",
+    view: "admin/Commandes",
+    meta: { layout: "admin" }
   }
 ];

@@ -8,14 +8,21 @@
     width="260"
   >
     <template v-slot:img="attrs">
-      <v-img v-bind="attrs" gradient="to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)" />
+      <v-img
+        v-bind="attrs"
+        gradient="to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)"
+      />
     </template>
     <v-list-item two-line>
       <v-list-item-avatar color="white">
-        <v-img src="https://cdn.vuetifyjs.com/images/logos/v.png" height="34" contain />
+        <v-img
+          src="https://cdn.vuetifyjs.com/images/logos/v.png"
+          height="34"
+          contain
+        />
       </v-list-item-avatar>
 
-      <v-list-item-title class="title">Restaury Backoffice</v-list-item-title>
+      <v-list-item-title class="title">Restaury</v-list-item-title>
     </v-list-item>
 
     <v-divider class="mb-3" />
@@ -28,6 +35,7 @@
         v-for="(link, i) in links"
         :key="i"
         :to="link.to"
+        exact
         active-class="primary white--text"
       >
         <v-list-item-icon>
@@ -45,7 +53,9 @@
             <v-icon>mdi-logout</v-icon>
           </v-list-item-icon>
 
-          <v-list-item-title class="font-weight-light">Se déconnecter</v-list-item-title>
+          <v-list-item-title class="font-weight-light"
+            >Se déconnecter</v-list-item-title
+          >
         </v-list-item>
       </v-list>
     </template>
@@ -66,17 +76,17 @@ export default {
   data: () => ({
     links: [
       {
-        to: "/",
+        to: "/admin",
         icon: "mdi-view-dashboard",
         text: "Dashboard"
       },
       {
-        to: "/restaurants",
+        to: "/admin/restaurants",
         icon: "mdi-account",
         text: "Restaurants"
       },
       {
-        to: "/commandes",
+        to: "/admin/commandes",
         icon: "mdi-clipboard-outline",
         text: "Commandes"
       }

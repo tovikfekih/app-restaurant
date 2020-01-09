@@ -13,9 +13,10 @@ import Router from "vue-router";
 // Routes
 import paths from "./paths";
 
-function route(path, view, name) {
+function route(path, meta, view, name) {
   return {
     name: name || view,
+    meta: meta,
     path,
     component: resovle => import(`@/views/${view}.vue`).then(resovle)
   };
@@ -27,7 +28,7 @@ Vue.use(Router);
 const router = new Router({
   mode: "history",
   routes: paths
-    .map(path => route(path.path, path.view, path.name))
+    .map(path => route(path.path, path.meta, path.view, path.name))
     .concat([{ path: "*", redirect: "/" }]),
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
