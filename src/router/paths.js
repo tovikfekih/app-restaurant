@@ -10,10 +10,21 @@ export default [
     name: "index"
   },
   {
+    path: "/restaurant/:id",
+    view: "Restaurant",
+    name: "restaurant"
+  },
+  {
     path: "/admin/login",
     name: "Connexion Administration",
     view: "admin/Login",
     meta: { layout: "default" }
+  },
+  {
+    path: "/admin/login",
+    name: "AdminLogin",
+    view: "admin/Login",
+    meta: { layout: "admin" }
   },
   {
     path: "/admin",
