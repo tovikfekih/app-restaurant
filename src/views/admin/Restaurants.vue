@@ -2,14 +2,22 @@
   <v-container fluid>
     <v-row>
       <v-col>
-        Hellew restos
+        <restaurant-liste admin />
       </v-col>
     </v-row>
   </v-container>
 </template>
-
 <script>
-export default {};
+import RestaurantListe from "./../../components/admin/RestaurantListe";
+export default {
+  components: {
+    RestaurantListe
+  },
+  data() {
+    return {};
+  },
+  mounted() {}
+};
 </script>
 
 <style scoped></style>

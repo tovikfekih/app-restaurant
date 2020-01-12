@@ -8,18 +8,11 @@
     width="260"
   >
     <template v-slot:img="attrs">
-      <v-img
-        v-bind="attrs"
-        gradient="to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)"
-      />
+      <v-img v-bind="attrs" gradient="to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)" />
     </template>
     <v-list-item two-line>
       <v-list-item-avatar color="white">
-        <v-img
-          src="https://cdn.vuetifyjs.com/images/logos/v.png"
-          height="34"
-          contain
-        />
+        <v-img src="https://cdn.vuetifyjs.com/images/logos/v.png" height="34" contain />
       </v-list-item-avatar>
 
       <v-list-item-title class="title">Restaury</v-list-item-title>
@@ -48,14 +41,19 @@
 
     <template v-slot:append>
       <v-list nav>
-        <v-list-item to="/upgrade">
+        <v-list-item to="/">
+          <v-list-item-icon>
+            <v-icon>mdi-home-import-outline</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-title class="font-weight-light">Site principal</v-list-item-title>
+        </v-list-item>
+        <v-list-item to="/admin/login">
           <v-list-item-icon>
             <v-icon>mdi-logout</v-icon>
           </v-list-item-icon>
 
-          <v-list-item-title class="font-weight-light"
-            >Se déconnecter</v-list-item-title
-          >
+          <v-list-item-title class="font-weight-light">Se déconnecter</v-list-item-title>
         </v-list-item>
       </v-list>
     </template>

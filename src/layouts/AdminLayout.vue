@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import TheAppBar from "./../components/admin/TheAppBar";
-import TheView from "./../components/admin/TheView";
-import TheDrawer from "./../components/admin/TheDrawer";
-import TheFooter from "./../components/admin/TheFooter";
+import TheAppBar from "./../components/admin/layout/TheAppBar";
+import TheView from "./../components/admin/layout/TheView";
+import TheDrawer from "./../components/admin/layout/TheDrawer";
+import TheFooter from "./../components/admin/layout/TheFooter";
 
 export default {
   components: {
