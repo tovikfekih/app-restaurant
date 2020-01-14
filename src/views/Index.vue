@@ -13,10 +13,13 @@
             <div
               style="font-size:50px;"
               class="mb-2 font-weight-thin white--text text-center"
-            >C'est bon de commander</div>
-            <div
-              class="title white--text text-center"
-            >Faites-vous livrer les meilleurs restos près de chez vous avec Restaury</div>
+            >
+              C'est bon de commander
+            </div>
+            <div class="title white--text text-center">
+              Faites-vous livrer les meilleurs restos près de chez vous avec
+              Restaury
+            </div>
           </v-col>
         </v-row>
         <v-row>
@@ -33,7 +36,13 @@
                   v-model.trim="rechercheParNomTemp"
                   @keyup.enter="lancerRecherche"
                 ></v-text-field>
-                <v-btn depressed rounded small class="mt-4 ml-5" @click="lancerRecherche">
+                <v-btn
+                  depressed
+                  rounded
+                  small
+                  class="mt-4 ml-5"
+                  @click="lancerRecherche"
+                >
                   <v-icon left>mdi-magnify</v-icon>Rechercher
                 </v-btn>
               </v-card-title>

@@ -6,21 +6,10 @@
           <img src="./../assets/logo_white.png" height="70" alt="Restaury" />
         </a>
       </v-toolbar-title>
-
-      <v-spacer></v-spacer>
-      <v-badge fixed top right content="helo">
-        <v-btn
-          depressed
-          color="transparent"
-          large
-          class="elevation-0 mr-5"
-          fab
-          style="margin-top:-35px;"
-        >
-          <v-icon color="white">mdi-cart</v-icon>
-        </v-btn>
-      </v-badge>
     </v-app-bar>
+    <commande-btn
+      style="position:fixed;z-index:11;top:15px;right:15px;"
+    ></commande-btn>
     <v-sheet>
       <v-content fluid class="pa-0">
         <router-view exact />
@@ -30,7 +19,14 @@
     <br />
     <br />
     <br />
-    <v-footer app inset absolute color="grey lighten-4" width="auto" height="auto">
+    <v-footer
+      app
+      inset
+      absolute
+      color="grey lighten-4"
+      width="auto"
+      height="auto"
+    >
       <v-container>
         <v-row align="center">
           <v-spacer />
@@ -46,14 +42,28 @@
         </v-row>
       </v-container>
     </v-footer>
-    <v-btn to="/admin/login" style="z-index:10" fixed dark bottom left color="pink">
+    <v-btn
+      to="/admin/login"
+      style="z-index:10"
+      fixed
+      dark
+      bottom
+      left
+      color="pink"
+    >
       <v-icon left>mdi-shield-account</v-icon>Administration
     </v-btn>
   </v-app>
 </template>
 
 <script>
+import CommandeBtn from "./../components/CommandeBtn";
 export default {
-  components: {}
+  components: { CommandeBtn }
 };
 </script>
+<style>
+.m-message-container {
+  font-family: "Roboto", sans-serif;
+}
+</style>

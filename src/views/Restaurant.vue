@@ -2,41 +2,43 @@
   <div>
     <v-parallax
       v-if="restaurant"
-      height="230"
+      height="350"
       class="pa-0"
       style="position:relative;"
       :src="photo"
     >
       <div class="overlay" />
-      <!-- <svg
-        style="position: absolute;
-    bottom: -80px;
-    left: 0;"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-      >
-        <path
-          fill="white"
-          fill-opacity="1"
-          d="M0,192L80,202.7C160,213,320,235,480,224C640,213,800,171,960,160C1120,149,1280,171,1360,181.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
-        ></path>
-      </svg> -->
     </v-parallax>
-    <v-container style="margin-top:-120px;z-index:10;position:relative">
+    <v-container style="margin-top:-230px;z-index:10;position:relative">
       <v-row>
         <v-col cols="8" class="offset-2">
           <v-row>
-            <v-col
-              ><div class="display-2 white--text">
+            <v-col cols="8" class="white--text">
+              <div class="display-2">
                 {{ restaurant.name }}
               </div>
-              <div class="test">Addresse</div>
+              <span style="text-transform:capitalize;">
+                <v-icon class="white--text" left>mdi-stove</v-icon>
+                Cuisine : {{ restaurant.cuisine }}
+              </span>
+              <span
+                v-if="restaurant.address"
+                style="text-transform:capitalize;"
+                class="ml-4"
+              >
+                <v-icon class="white--text" left
+                  >mdi-home-circle-outline</v-icon
+                >
+                {{ restaurant.address.street }}, {{ restaurant.borough }},
+                {{ restaurant.address.building }},
+                {{ restaurant.address.zipcode }}
+              </span>
             </v-col>
-            <v-col class="text-right">
+            <v-col cols="4" class="text-right">
               <span class="white--text ml-4" style="font-size:20px;">
-                {{ GradeMoyen }}
+                {{ GradeMoyen }}/5
                 <span v-if="restaurant.grades"
-                  >({{ restaurant.grades.length }})</span
+                  >({{ restaurant.grades.length }} Notes)</span
                 >
               </span>
               <v-rating
@@ -53,7 +55,7 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="8" class="offset-2" v-if="restaurant">
+        <v-col cols="8" class="offset-2 pt-0" v-if="restaurant">
           <v-row>
             <v-col cols="12">
               <v-card>
@@ -78,6 +80,16 @@
                     :id="index"
                     :plat="plat"
                   />
+                </v-card-text>
+                <v-card-text v-if="restaurant.carte" class="text-center pt-0">
+                  <v-btn
+                    @click="AjouterAuPanier(restaurant.carte)"
+                    small
+                    depressed
+                    text
+                    ><v-icon left>mdi-plus</v-icon> Ajouter la carte au
+                    panier</v-btn
+                  >
                 </v-card-text>
               </v-card>
             </v-col>
@@ -104,6 +116,16 @@
                         :id="index"
                         :plat="plat"
                       />
+                      <div v-if="menu" class="text-center">
+                        <v-btn
+                          @click="AjouterAuPanier(menu.dishes)"
+                          small
+                          depressed
+                          text
+                          ><v-icon left>mdi-plus</v-icon> Ajouter le menu au
+                          panier</v-btn
+                        >
+                      </div>
                     </v-tab-item>
                   </v-tabs>
                 </v-card-text>
@@ -169,7 +191,7 @@ export default {
   },
   computed: {
     GradeMoyen() {
-      if (this.restaurant)
+      if (this.restaurant.grades)
         return _.round(_.mean(_.map(this.restaurant.grades || [], "grade")), 1);
       return 0;
     },
@@ -181,6 +203,14 @@ export default {
     }
   },
   methods: {
+    AjouterAuPanier(plats) {
+      this.$store.state.panier = this.$store.state.panier.concat(plats);
+      this.$message({
+        message: "Les plats ont été ajouté a votre panier.",
+        type: "success",
+        showClose: true
+      });
+    },
     getRestaurant(id = null) {
       this.loading = true;
       RestaurantServices.get(this, id)

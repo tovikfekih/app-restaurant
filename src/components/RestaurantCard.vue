@@ -4,6 +4,7 @@
     :loading="loading"
     class="mx-auto"
     max-width="374"
+    v-if="restaurant"
   >
     <v-img
       height="150"
@@ -29,14 +30,30 @@
           {{ GradeMoyen }} ({{ restaurant.grades.length }})
         </div>
       </v-row>
-
-      <div class="subtitle-1 black--text">{{ restaurant.cuisine }}</div>
+      <v-row>
+        <v-col cols="12">
+          <span style="text-transform:capitalize;">
+            Cuisine : {{ restaurant.cuisine }} </span
+          ><br />
+          <span v-if="restaurant.address" style="text-transform:capitalize;"
+            >Address : <br />
+            {{ restaurant.address.street }}, {{ restaurant.borough }},
+            {{ restaurant.address.building }},
+            {{ restaurant.address.zipcode }}
+          </span>
+        </v-col>
+      </v-row>
 
       <div>{{ restaurant.description }}</div>
     </v-card-text>
 
-    <v-card-actions>
-      <v-btn color="deep-purple accent-4" text @click="reserve">Reserve</v-btn>
+    <v-card-actions class="text-center">
+      <v-btn
+        color="deep-purple accent-4"
+        text
+        :to="'/restaurant/' + restaurant._id"
+        >Consulter</v-btn
+      >
     </v-card-actions>
   </v-card>
 </template>
