@@ -7,6 +7,9 @@ import vuetify from "./plugins/vuetify";
 import { sync } from "vuex-router-sync";
 import "./assets/styles/styles.scss";
 
+import Message from "vue-m-message";
+
+Vue.use(Message);
 sync(store, router);
 
 Vue.config.productionTip = false;

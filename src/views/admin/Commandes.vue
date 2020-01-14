@@ -2,14 +2,17 @@
   <v-container fluid>
     <v-row>
       <v-col>
-        Hellew
+        <commande-list></commande-list>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-export default {};
+import CommandeList from "./../../components/admin/CommandeListe";
+export default {
+  components: { CommandeList }
+};
 </script>
 
 <style scoped></style>

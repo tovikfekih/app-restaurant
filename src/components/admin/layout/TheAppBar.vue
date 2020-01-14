@@ -4,14 +4,6 @@
       <v-icon>mdi-view-list</v-icon>
     </v-btn>
     <v-toolbar-title class="hidden-sm-and-down">{{ title }}</v-toolbar-title>
-    <v-spacer />
-    <v-text-field
-      class="mb-2"
-      color="purple secondary--text"
-      label="Search"
-      hide-details
-      style="max-width: 165px;"
-    />
     <div class="mx-3" />
   </v-app-bar>
 </template>
@@ -23,13 +15,7 @@ export default {
   name: "TheAppBar",
   data() {
     return {
-      notifications: [
-        "Mike, John responded to your email",
-        "You have 5 new tasks",
-        "You're now a friend with Andrew",
-        "Another Notification",
-        "Another One"
-      ],
+      notifications: [],
       title: this.$route.name,
       responsive: false
     };

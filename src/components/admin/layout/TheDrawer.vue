@@ -74,11 +74,6 @@ export default {
   data: () => ({
     links: [
       {
-        to: "/admin",
-        icon: "mdi-view-dashboard",
-        text: "Dashboard"
-      },
-      {
         to: "/admin/restaurants",
         icon: "mdi-account",
         text: "Restaurants"

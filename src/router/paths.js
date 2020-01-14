@@ -29,7 +29,7 @@ export default [
   {
     path: "/admin",
     name: "Administration",
-    view: "admin/Dashboard",
+    redirect: { name: "Gestion des restaurants" },
     meta: { layout: "admin" }
   },
   {
