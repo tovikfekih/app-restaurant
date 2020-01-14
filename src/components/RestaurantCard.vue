@@ -1,21 +1,38 @@
 <template>
-  <v-card :to="'/restaurant/'+restaurant._id" :loading="loading" class="mx-auto" max-width="374">
+  <v-card
+    :to="'/restaurant/' + restaurant._id"
+    :loading="loading"
+    class="mx-auto"
+    max-width="374"
+  >
     <v-img
       height="150"
-      :src="'https://loremflickr.com/320/240/restaurant,food/all?lock='+restaurant._id.replace(/\D+/g, '')"
+      :src="
+        'https://loremflickr.com/320/240/restaurant/all?lock=' +
+          restaurant._id.replace(/\D+/g, '')
+      "
     ></v-img>
 
-    <v-card-title class="pb-0">{{restaurant.name}}</v-card-title>
+    <v-card-title class="pb-0">{{ restaurant.name }}</v-card-title>
 
     <v-card-text class="pb-0">
       <v-row align="center" class="mx-0">
-        <v-rating :value="GradeMoyen" color="amber" dense half-increments readonly size="14"></v-rating>
-        <div class="grey--text ml-4">{{GradeMoyen}} ({{restaurant.grades.length}})</div>
+        <v-rating
+          :value="GradeMoyen"
+          color="amber"
+          dense
+          half-increments
+          readonly
+          size="14"
+        ></v-rating>
+        <div class="grey--text ml-4">
+          {{ GradeMoyen }} ({{ restaurant.grades.length }})
+        </div>
       </v-row>
 
-      <div class="subtitle-1 black--text">{{restaurant.cuisine}}</div>
+      <div class="subtitle-1 black--text">{{ restaurant.cuisine }}</div>
 
-      <div>{{restaurant.description}}</div>
+      <div>{{ restaurant.description }}</div>
     </v-card-text>
 
     <v-card-actions>
@@ -52,5 +69,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
