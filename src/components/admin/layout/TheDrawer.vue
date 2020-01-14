@@ -11,11 +11,7 @@
       <v-img v-bind="attrs" gradient="to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)" />
     </template>
     <v-list-item two-line>
-      <v-list-item-avatar color="white">
-        <v-img src="https://cdn.vuetifyjs.com/images/logos/v.png" height="34" contain />
-      </v-list-item-avatar>
-
-      <v-list-item-title class="title">Restaury</v-list-item-title>
+      <v-img src="./../../../assets/logo_white.png" width="70" />
     </v-list-item>
 
     <v-divider class="mb-3" />
